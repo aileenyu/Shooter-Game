@@ -1,0 +1,50 @@
+RedBall ball1 = new RedBall(100, 500, 50);//x, y, s
+swish swish1 = new swish(); 
+level level1 = new level();
+score score1 = new score();
+boolean pewHit=false;
+boolean swishHit=false;
+boolean swish=true;
+boolean pew = false;//is there a pew out there
+boolean pewHitted;
+boolean pewMove=true;
+float LeftorRight;
+int counter=0;//count the score
+int level=1;
+float ySwish=random (200);
+float vSwish=0.1;//speed of swish
+float xSwishLeft=0;
+float xSwishRight=500;
+float xSwish;
+int yPos = 500;
+int xPos;
+int xPew;
+int yPew;
+PFont f;
+
+
+void setup()
+{
+  f=createFont("Arial", 16, true);
+  size(500, 500);
+  frameRate(300);
+}
+
+void draw()
+{  
+  swish1.oncePerSwish();
+  ball1.update();
+  ball1.pew();
+  ball1.pewDraw();
+  ball1.yPosition();
+  swish1.leftRight();
+  score1.scoreUp();
+  score1.printText();
+  level1.levelUp();
+}
+
+void mousePressed()
+{
+  ball1.makePew();
+}
+
